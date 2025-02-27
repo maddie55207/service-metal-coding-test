@@ -1,4 +1,4 @@
-import requests
+import requests # pip install requests
 from pprint import pprint
 
 endpoint_url = "https://jsonplaceholder.typicode.com/todos"
@@ -7,8 +7,8 @@ endpoint_url = "https://jsonplaceholder.typicode.com/todos"
 recent_todos_response = requests.get(endpoint_url)
 
 if recent_todos_response.status_code in [200, 204]:
-    # in the case that more than 200 todos exist, use only the 200 most recent
     todos = recent_todos_response.json()
+    # in the case that more than 200 todos exist, use only the 200 most recent
     most_recent = sorted(todos, key=lambda x: x["id"], reverse=True)[:200]
     # print neatly, most recent first
     print("200 most recent todos:\n")
@@ -28,7 +28,7 @@ todo = {
 
 create_response = requests.post(endpoint_url, todo)
 
-if(create_response.status_code >= 200): # 201 for successful creation
+if(create_response.status_code == 201): # 201 for successful creation
     print("\nCreated todo:\n")
     print(create_response.text)
 else:

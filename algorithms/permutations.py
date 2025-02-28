@@ -2,7 +2,7 @@ import sys
 
 # validate input
 if len(sys.argv) < 2:
-    print("Usage format: python permutations.py <filename>")
+    print("Usage format: python3 permutations.py <filename>")
     sys.exit(1)
 
 input_file = sys.argv[1]
